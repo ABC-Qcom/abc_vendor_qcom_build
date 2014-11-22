@@ -18,5 +18,8 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
         TARGET_GLOBAL_CFLAGS += -DQCOM_DIRECTTRACK
         TARGET_GLOBAL_CPPFLAGS += -DQCOM_DIRECTTRACK
     endif
+	# Enable legacy graphics functions
+    LOCAL_GLOBAL_CFLAGS += -DQCOM_BSP_LEGACY
+    LOCAL_GLOBAL_CPPFLAGS += -DQCOM_BSP_LEGACY
     endif
 endif
