@@ -1,6 +1,5 @@
 # Target-specific configuration
 
-# Enable DirectTrack on QCOM legacy boards
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 
     TARGET_GLOBAL_CFLAGS += -DQCOM_HARDWARE
@@ -18,8 +17,7 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
         TARGET_GLOBAL_CFLAGS += -DQCOM_DIRECTTRACK
         TARGET_GLOBAL_CPPFLAGS += -DQCOM_DIRECTTRACK
     endif
-	# Enable legacy graphics functions
-    LOCAL_GLOBAL_CFLAGS += -DQCOM_BSP_LEGACY
-    LOCAL_GLOBAL_CPPFLAGS += -DQCOM_BSP_LEGACY
+        # Enable legacy graphics functions
+        TARGET_USES_QCOM_BSP_LEGACY := true
     endif
 endif
