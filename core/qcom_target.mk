@@ -20,4 +20,6 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 
     TARGET_GLOBAL_CFLAGS += $(qcom_flags)
     TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
+    CLANG_TARGET_GLOBAL_CFLAGS += $(qcom_flags)
+    CLANG_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
 endif
