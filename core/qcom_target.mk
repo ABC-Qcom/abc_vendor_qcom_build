@@ -27,4 +27,20 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
     2ND_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
     2ND_CLANG_TARGET_GLOBAL_CFLAGS += $(qcom_flags)
     2ND_CLANG_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
+
+    ifeq ($(QCOM_HARDWARE_VARIANT),)
+        ifneq ($(filter msm8610 msm8226 msm8974,$(TARGET_BOARD_PLATFORM)),)
+            QCOM_HARDWARE_VARIANT := msm8974
+        else
+        ifneq ($(filter msm8909 msm8916,$(TARGET_BOARD_PLATFORM)),)
+            QCOM_HARDWARE_VARIANT := msm8916
+        else
+        ifneq ($(filter msm8992 msm8994,$(TARGET_BOARD_PLATFORM)),)
+            QCOM_HARDWARE_VARIANT := msm8994
+        else
+            QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
+        endif
+        endif
+        endif
+    endif
 endif
