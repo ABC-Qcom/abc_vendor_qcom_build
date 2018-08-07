@@ -13,7 +13,7 @@ ifeq ($(BOARD_USES_QTI_HARDWARE),true)
     B_FAMILY := msm8226 msm8610 msm8974
     B64_FAMILY := msm8992 msm8994
     BR_FAMILY := msm8909 msm8916
-    UM_FAMILY := msm8937 msm8953
+    UM_FAMILY := msm8937 msm8953 msm8996
 
     ifneq ($(TARGET_USES_AOSP),true)
         TARGET_USES_QCOM_BSP := true
@@ -60,7 +60,7 @@ ifeq ($(BOARD_USES_QTI_HARDWARE),true)
         QCOM_HARDWARE_VARIANT := msm8916
     else
     ifeq ($(call is-board-platform-in-list, $(UM_FAMILY)),true)
-        QCOM_HARDWARE_VARIANT := msm8937
+        QCOM_HARDWARE_VARIANT := msm8996
     else
         QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
     endif
