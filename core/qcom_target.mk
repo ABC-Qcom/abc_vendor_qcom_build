@@ -8,6 +8,8 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 endif
 
 ifeq ($(BOARD_USES_QTI_HARDWARE),true)
+
+    A_FAMILY := msm7x27a msm7x30 msm8660 msm8960
     B_FAMILY := msm8226 msm8610 msm8974
     B64_FAMILY := msm8992 msm8994
     BR_FAMILY := msm8909 msm8916
@@ -44,6 +46,10 @@ ifeq ($(BOARD_USES_QTI_HARDWARE),true)
 
     # Every qcom platform is considered a vidc target
     MSM_VIDC_TARGET_LIST := $(TARGET_BOARD_PLATFORM)
+
+    ifeq ($(call is-board-platform-in-list, $(A_FAMILY)),true)
+        QCOM_HARDWARE_VARIANT := msm8960
+    else
     ifeq ($(call is-board-platform-in-list, $(B_FAMILY)),true)
         QCOM_HARDWARE_VARIANT := msm8974
     else
@@ -54,7 +60,7 @@ ifeq ($(BOARD_USES_QTI_HARDWARE),true)
         QCOM_HARDWARE_VARIANT := msm8916
     else
     ifeq ($(call is-board-platform-in-list, $(UM_FAMILY)),true)
-        QCOM_HARDWARE_VARIANT := msm8996
+        QCOM_HARDWARE_VARIANT := msm8937
     else
         QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
     endif
